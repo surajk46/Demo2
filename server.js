@@ -4,11 +4,17 @@ var path=require('path')
 var app=exp();
 app.use(exp.static('scripts'))
 app.use(bp.urlencoded({extended: false }));
+app.use(exp.static(path.join(__dirname,'public')));
+
 
 app.listen(9000,function(){
     console.log("running on 9000");
 });
-app.use(exp.static(path.join(__dirname,'public')));
+app.get('/*',function(req,res){
+    res.send("<h1>No page<h1>");
+});
+
+/*
 app.get('/getform',function(req,res){
     res.sendFile(__dirname+'/form.html')
 })
@@ -26,4 +32,4 @@ app.post('/getDataTable',function(req,res){
     a+="</table>"
     res.send(a);
 
-})
+})*/
