@@ -6,7 +6,19 @@ app.use(exp.static('scripts'))
 app.use(bp.urlencoded({extended: false }));
 //app.use(exp.static(path.join(__dirname,'public')));
 
+//server configuration
+app.use(exp.static(path.join(__dirname,'public')));
 
+ app.get('/', function (req, res) {
+   res.sendFile(path.join(___dirname + '/form.html'));
+});
+ 
+
+app.get('/hello', function (req, res) {
+  console.log("CAlling rest api");
+  var person={firstName:'Ravi',lastName:'Tambade',age:43};
+  res.send(person);
+});
 app.listen(9000,function(){
     console.log("running on 9000");
 });
