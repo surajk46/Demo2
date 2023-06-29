@@ -8,7 +8,7 @@ app.use(bp.urlencoded({extended: false }));
 app.listen(9000,function(){
     console.log("running on 9000");
 });
-app.use(express.static(path.join(__dirname,'public')));
+app.use(exp.static(path.join(__dirname,'public')));
 app.get('/getform',function(req,res){
     res.sendFile(__dirname+'/form.html')
 })
