@@ -4,14 +4,14 @@ var path=require('path')
 var app=exp();
 app.use(exp.static('scripts'))
 app.use(bp.urlencoded({extended: false }));
-app.use(exp.static(path.join(__dirname,'public')));
+//app.use(exp.static(path.join(__dirname,'public')));
 
 
 app.listen(9000,function(){
     console.log("running on 9000");
 });
 app.get('/*',function(req,res){
-    res.send("<h1>No page<h1>");
+    res.send("<h1>No page</h1>");
 });
 
 /*
